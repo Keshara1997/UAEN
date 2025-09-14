@@ -22,12 +22,12 @@ const Navbar = () => {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Us' },
+    { path: '/about', label: 'AboutUs' },
     { path: '/programs', label: 'Programs' },
     { path: '/admissions', label: 'Admissions' },
-    { path: '/why-choose', label: 'Why Choose SDTI' },
-    { path: '/campus-life', label: 'Campus Life' },
-    { path: '/news', label: 'News & Events' },
+    { path: '/why-choose', label: 'WhyChooseSDTI' },
+    { path: '/campus-life', label: 'CampusLife' },
+    { path: '/news', label: 'News&Events' },
     { path: '/contact', label: 'Contact' },
   ];
 
@@ -36,13 +36,12 @@ const Navbar = () => {
       isScrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-30">
           {/* Logo */}
+          
+          
           <Link to="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-blue-600">SDTI</div>
-            <div className="text-sm text-gray-600 dark:text-gray-300 hidden sm:block">
-              Skills Development Training Institute
-            </div>
+            <img src="/images/logos/sdti.png" alt="SDTI Logo" className="h-20 w-60" />
           </Link>
 
           {/* Desktop Navigation */}

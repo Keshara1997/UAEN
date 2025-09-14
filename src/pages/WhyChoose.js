@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 const WhyChoose = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState({});
+
   const keyStrengths = [
     {
       icon: 'fas fa-chalkboard-teacher',
@@ -65,46 +67,75 @@ const WhyChoose = () => {
       program: 'Information Technology',
       position: 'Software Developer at TechCorp',
       quote: 'SDTI gave me the practical skills and industry connections that launched my career. The hands-on approach and experienced lecturers made all the difference.',
-      image: 'https://via.placeholder.com/80x80/2563eb/ffffff?text=SA'
+      image: "/images/Graduation%20Special/379923268_251494751199518_8158933241376544005_n-mi.jpeg",
+
     },
     {
       name: 'Ahmed Hassan',
       program: 'Engineering Technology',
       position: 'Senior Engineer at Manufacturing Inc.',
       quote: 'The practical training and industry partnerships at SDTI prepared me perfectly for my current role. I was hired immediately after graduation.',
-      image: 'https://via.placeholder.com/80x80/3b82f6/ffffff?text=AH'
+      image: "/images/Graduation%20Special/379923268_251494751199518_8158933241376544005_n-mi.jpeg",
     },
     {
       name: 'Fatima Al-Zahra',
       program: 'Business Management',
       position: 'Marketing Manager at Digital Agency',
       quote: 'SDTI not only taught me business skills but also helped me develop leadership qualities. The career support was exceptional.',
-      image: 'https://via.placeholder.com/80x80/8b5cf6/ffffff?text=FZ'
+      image: "/images/Graduation%20Special/379923268_251494751199518_8158933241376544005_n-mi.jpeg",
     }
   ];
 
-  const facilities = [
+  const facilities = useMemo(() => [
     {
       title: 'Modern Computer Labs',
-      description: 'State-of-the-art computer labs with latest hardware and software',
-      image: 'https://via.placeholder.com/400x300/2563eb/ffffff?text=Computer+Lab'
+      description: 'State-of-the-art computer labs with latest hardware and software for hands-on learning',
+      image : ['/images/Graduation Special/379923268_251494751199518_8158933241376544005_n-mi.jpeg',
+        '/images/Graduation Special/473576898_1161969612595416_1303676268995549737_n.jpg',
+        '/images/Graduation Special/473620187_1161969932595384_8195860307286033297_n.jpg',
+        '/images/Graduation Special/501491371_1278045884321121_5884436298341591632_n.jpg'
+      ]
     },
     {
       title: 'Engineering Workshops',
-      description: 'Fully equipped workshops for hands-on engineering training',
-      image: 'https://via.placeholder.com/400x300/059669/ffffff?text=Workshop'
-    },
+      description: 'Fully equipped workshops with advanced machinery for practical engineering training',
+      image : ['/images/Graduation Special/379923268_251494751199518_8158933241376544005_n-mi.jpeg',
+        '/images/Graduation Special/473576898_1161969612595416_1303676268995549737_n.jpg',
+        '/images/Graduation Special/473620187_1161969932595384_8195860307286033297_n.jpg',
+        '/images/Graduation Special/501491371_1278045884321121_5884436298341591632_n.jpg'
+      ]    },
     {
       title: 'Library & Study Areas',
-      description: 'Comprehensive library with digital resources and quiet study spaces',
-      image: 'https://via.placeholder.com/400x300/7c3aed/ffffff?text=Library'
-    },
+      description: 'Modern library with digital resources, quiet study spaces, and collaborative areas',
+      image: ['/images/Graduation Special/379923268_251494751199518_8158933241376544005_n-mi.jpeg',
+        '/images/Graduation Special/473576898_1161969612595416_1303676268995549737_n.jpg',
+        '/images/Graduation Special/473620187_1161969932595384_8195860307286033297_n.jpg',
+        '/images/Graduation Special/501491371_1278045884321121_5884436298341591632_n.jpg'
+      ]    },
     {
       title: 'Student Lounge',
-      description: 'Comfortable spaces for relaxation and student interaction',
-      image: 'https://via.placeholder.com/400x300/dc2626/ffffff?text=Lounge'
-    }
-  ];
+      description: 'Contemporary spaces designed for relaxation, networking, and student interaction',
+      image : ['/images/Graduation Special/379923268_251494751199518_8158933241376544005_n-mi.jpeg',
+        '/images/Graduation Special/473576898_1161969612595416_1303676268995549737_n.jpg',
+        '/images/Graduation Special/473620187_1161969932595384_8195860307286033297_n.jpg',
+        '/images/Graduation Special/501491371_1278045884321121_5884436298341591632_n.jpg'
+      ]    }
+  ], []);
+
+  // Auto slideshow effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(prev => {
+        const newState = {};
+        facilities.forEach((facility, facilityIndex) => {
+          newState[facilityIndex] = ((prev[facilityIndex] || 0) + 1) % facility.image.length;
+        });
+        return newState;
+      });
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [facilities]);
 
   return (
     <div className="min-h-screen pt-16">
@@ -172,26 +203,45 @@ const WhyChoose = () => {
       </section>
 
       {/* Visuals - Campus Facilities */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             Campus Facilities
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {facilities.map((facility, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                <div className="h-64 bg-gray-200 flex items-center justify-center">
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover">
+                <div className="relative h-64 bg-gray-200 dark:bg-gray-700 overflow-hidden">
                   <img 
-                    src={facility.image} 
+                    src={facility.image[currentImageIndex[index] || 0]} 
                     alt={facility.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-all duration-500 ease-in-out"
                   />
+                  
+                  {/* Image Indicators */}
+                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    {facility.image.map((_, imgIndex) => (
+                      <div
+                        key={imgIndex}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          (currentImageIndex[index] || 0) === imgIndex 
+                            ? 'bg-white scale-110' 
+                            : 'bg-white/50'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  
+                  {/* Image Counter */}
+                  <div className="absolute top-2 right-2 bg-black/50 backdrop-blur-sm text-white px-2 py-1 rounded text-sm font-medium">
+                    {(currentImageIndex[index] || 0) + 1} / {facility.image.length}
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     {facility.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {facility.description}
                   </p>
                 </div>
@@ -202,14 +252,14 @@ const WhyChoose = () => {
       </section>
 
       {/* Student Success Stories */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             Student Success Stories
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg card-hover">
+              <div key={index} className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg card-hover">
                 <div className="flex items-center mb-6">
                   <img 
                     src={testimonial.image} 
@@ -217,18 +267,18 @@ const WhyChoose = () => {
                     className="w-16 h-16 rounded-full mr-4"
                   />
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       {testimonial.name}
                     </h3>
-                    <p className="text-sm text-blue-600">
+                    <p className="text-sm text-blue-600 dark:text-blue-400">
                       {testimonial.program} Graduate
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
                       {testimonial.position}
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-600 italic leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 italic leading-relaxed">
                   "{testimonial.quote}"
                 </p>
               </div>
@@ -238,77 +288,179 @@ const WhyChoose = () => {
       </section>
 
       {/* Industry Recognition */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
-            Industry Recognition
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
+            Industry Recognition & Accreditation
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center bg-gray-50 p-8 rounded-2xl">
-              <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+          
+          {/* Enhanced Cards */}
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-green-200 dark:border-green-700">
+              <div className="w-20 h-20 bg-gradient-to-br from-green-600 to-green-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <i className="fas fa-award text-3xl text-white"></i>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Accredited Programs
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 All our programs are accredited by relevant industry bodies and educational authorities.
               </p>
             </div>
-            <div className="text-center bg-gray-50 p-8 rounded-2xl">
-              <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-200 dark:border-blue-700">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <i className="fas fa-star text-3xl text-white"></i>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Quality Assurance
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 Regular quality assessments ensure our programs meet the highest educational standards.
               </p>
             </div>
-            <div className="text-center bg-gray-50 p-8 rounded-2xl">
-              <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-200 dark:border-purple-700">
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <i className="fas fa-handshake text-3xl text-white"></i>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Industry Partnerships
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 Strong partnerships with leading companies provide excellent career opportunities.
               </p>
+            </div>
+          </div> */}
+
+          {/* Logo Grid */}
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-3xl p-8 md:p-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+              Our Certifications & Accreditations
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/sdti.png" 
+                  alt="SDTI Logo" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/ugc_recognized.png" 
+                  alt="UGC Recognized" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/IIC1.png" 
+                  alt="IIC Certification" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/iso.png" 
+                  alt="ISO Certification" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/iqa logo png.png" 
+                  alt="IQA Logo" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/SILVER-WES-logo-NEW.png" 
+                  alt="Silver WES Logo" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/Logo---EDU (2).png" 
+                  alt="Education Logo" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/LOGO-1-927x1024.png" 
+                  alt="Institution Logo" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/HQ.png" 
+                  alt="HQ Logo" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+              <div className="group flex items-center justify-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <img 
+                  src="/images/logos/193375.png" 
+                  alt="Certification Logo" 
+                  className="h-16 w-auto object-contain transition-all duration-300"
+                />
+              </div>
+            </div>
+            
+            {/* Additional Info */}
+            <div className="mt-12 text-center">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                These certifications demonstrate our commitment to maintaining the highest standards of education and training.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <span className="flex items-center">
+                  <i className="fas fa-check-circle text-green-500 mr-2"></i>
+                  Internationally Recognized
+                </span>
+                <span className="flex items-center">
+                  <i className="fas fa-check-circle text-green-500 mr-2"></i>
+                  Quality Assured
+                </span>
+                <span className="flex items-center">
+                  <i className="fas fa-check-circle text-green-500 mr-2"></i>
+                  Industry Approved
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Career Support */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Comprehensive Career Support
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 Our dedicated career services team works closely with students to ensure 
                 successful job placement and career development.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <i className="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                  <span className="text-gray-600">Resume writing and interview preparation</span>
+                  <span className="text-gray-600 dark:text-gray-300">Resume writing and interview preparation</span>
                 </div>
                 <div className="flex items-start">
                   <i className="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                  <span className="text-gray-600">Job placement assistance and networking events</span>
+                  <span className="text-gray-600 dark:text-gray-300">Job placement assistance and networking events</span>
                 </div>
                 <div className="flex items-start">
                   <i className="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                  <span className="text-gray-600">Career counseling and mentorship programs</span>
+                  <span className="text-gray-600 dark:text-gray-300">Career counseling and mentorship programs</span>
                 </div>
                 <div className="flex items-start">
                   <i className="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                  <span className="text-gray-600">Alumni network and ongoing career support</span>
+                  <span className="text-gray-600 dark:text-gray-300">Alumni network and ongoing career support</span>
                 </div>
               </div>
             </div>

@@ -7,185 +7,293 @@ const Programs = () => {
     { id: 'all', name: 'All Programs' },
     { id: 'diploma', name: 'Diplomas' },
     { id: 'certificate', name: 'Certificates' },
-    { id: 'short', name: 'Short Courses' }
+    { id: 'short', name: 'Short Courses' },
+    { id: 'degree', name: 'Degrees' },
+    { id: 'master', name: 'Masters' },
+    { id: 'phd', name: 'PhD' },
   ];
 
   const programs = [
-    {
-      id: 1,
-      category: 'diploma',
-      title: 'Information Technology',
-      duration: '2 Years',
-      level: 'Diploma',
-      overview: 'Comprehensive IT training covering programming, networking, system administration, and software development.',
-      objectives: [
-        'Master programming languages (Python, Java, C++)',
-        'Understand network architecture and security',
-        'Learn database design and management',
-        'Develop web and mobile applications'
-      ],
-      requirements: [
-        'High school diploma or equivalent',
-        'Basic computer literacy',
-        'Mathematics proficiency',
-        'English language skills'
-      ],
-      careerOpportunities: [
-        'Software Developer',
-        'Network Administrator',
-        'System Analyst',
-        'IT Support Specialist',
-        'Web Developer'
-      ],
-      icon: 'fas fa-laptop-code',
-      color: 'from-blue-600 to-blue-700'
-    },
-    {
-      id: 2,
-      category: 'diploma',
-      title: 'Engineering Technology',
-      duration: '2 Years',
-      level: 'Diploma',
-      overview: 'Practical engineering skills with focus on modern manufacturing, automation, and technical problem-solving.',
-      objectives: [
-        'Master engineering principles and practices',
-        'Learn CAD/CAM software applications',
-        'Understand manufacturing processes',
-        'Develop technical problem-solving skills'
-      ],
-      requirements: [
-        'High school diploma with science subjects',
-        'Mathematics and physics proficiency',
-        'Technical aptitude',
-        'English language skills'
-      ],
-      careerOpportunities: [
-        'Engineering Technician',
-        'Manufacturing Engineer',
-        'Quality Control Specialist',
-        'CAD Designer',
-        'Production Supervisor'
-      ],
-      icon: 'fas fa-cogs',
-      color: 'from-green-600 to-green-700'
-    },
-    {
-      id: 3,
-      category: 'certificate',
-      title: 'Business Management',
-      duration: '1 Year',
-      level: 'Certificate',
-      overview: 'Essential business skills including management principles, marketing strategies, and entrepreneurship.',
-      objectives: [
-        'Understand business management principles',
-        'Learn marketing and sales strategies',
-        'Develop leadership and communication skills',
-        'Master financial management basics'
-      ],
-      requirements: [
-        'High school diploma',
-        'Basic English proficiency',
-        'Interest in business and management',
-        'Communication skills'
-      ],
-      careerOpportunities: [
-        'Business Manager',
-        'Marketing Coordinator',
-        'Sales Representative',
-        'Administrative Assistant',
-        'Entrepreneur'
-      ],
-      icon: 'fas fa-chart-line',
-      color: 'from-purple-600 to-purple-700'
-    },
-    {
-      id: 4,
-      category: 'certificate',
-      title: 'Digital Marketing',
-      duration: '6 Months',
-      level: 'Certificate',
-      overview: 'Modern digital marketing strategies including social media, SEO, content marketing, and analytics.',
-      objectives: [
-        'Master social media marketing',
-        'Learn SEO and SEM techniques',
-        'Understand content marketing strategies',
-        'Analyze marketing performance metrics'
-      ],
-      requirements: [
-        'High school diploma',
-        'Basic computer skills',
-        'English proficiency',
-        'Creative thinking ability'
-      ],
-      careerOpportunities: [
-        'Digital Marketing Specialist',
-        'Social Media Manager',
-        'SEO Specialist',
-        'Content Creator',
-        'Marketing Analyst'
-      ],
-      icon: 'fas fa-bullhorn',
-      color: 'from-pink-600 to-pink-700'
-    },
-    {
-      id: 5,
-      category: 'short',
-      title: 'Web Development',
-      duration: '3 Months',
-      level: 'Short Course',
-      overview: 'Intensive web development course covering front-end and back-end technologies.',
-      objectives: [
-        'Master HTML, CSS, and JavaScript',
-        'Learn React and Node.js',
-        'Understand database integration',
-        'Build responsive web applications'
-      ],
-      requirements: [
-        'Basic computer literacy',
-        'Logical thinking ability',
-        'English language skills',
-        'Commitment to learning'
-      ],
-      careerOpportunities: [
-        'Front-end Developer',
-        'Back-end Developer',
-        'Full-stack Developer',
-        'Web Designer',
-        'Freelance Developer'
-      ],
-      icon: 'fas fa-code',
-      color: 'from-orange-600 to-orange-700'
-    },
-    {
-      id: 6,
-      category: 'short',
-      title: 'Graphic Design',
-      duration: '4 Months',
-      level: 'Short Course',
-      overview: 'Creative design skills using industry-standard software and design principles.',
-      objectives: [
-        'Master Adobe Creative Suite',
-        'Learn design principles and typography',
-        'Develop branding and identity design skills',
-        'Create print and digital designs'
-      ],
-      requirements: [
-        'Creative aptitude',
-        'Basic computer skills',
-        'Artistic ability',
-        'English language skills'
-      ],
-      careerOpportunities: [
-        'Graphic Designer',
-        'UI/UX Designer',
-        'Brand Designer',
-        'Print Designer',
-        'Freelance Designer'
-      ],
-      icon: 'fas fa-palette',
-      color: 'from-teal-600 to-teal-700'
-    }
-  ];
+  // Diplomas
+  {
+    id: 1,
+    category: "diploma",
+    title: "Information Technology",
+    duration: "2 Years",
+    level: "Diploma",
+    overview:
+      "Comprehensive IT training covering programming, networking, system administration, and software development.",
+    objectives: [
+      "Master programming languages (Python, Java, C++)",
+      "Understand network architecture and security",
+      "Learn database design and management",
+      "Develop web and mobile applications",
+    ],
+    requirements: [
+      "High school diploma or equivalent",
+      "Basic computer literacy",
+      "Mathematics proficiency",
+      "English language skills",
+    ],
+    careerOpportunities: [
+      "Software Developer",
+      "Network Administrator",
+      "System Analyst",
+      "IT Support Specialist",
+      "Web Developer",
+    ],
+    Image: "/images/programs/diploma-it.jpg",
+    color: "from-blue-600 to-blue-700",
+  },
+  {
+    id: 2,
+    category: "diploma",
+    title: "Engineering Technology",
+    duration: "2 Years",
+    level: "Diploma",
+    overview:
+      "Practical engineering skills with focus on modern manufacturing, automation, and technical problem-solving.",
+    objectives: [
+      "Master engineering principles and practices",
+      "Learn CAD/CAM software applications",
+      "Understand manufacturing processes",
+      "Develop technical problem-solving skills",
+    ],
+    requirements: [
+      "High school diploma with science subjects",
+      "Mathematics and physics proficiency",
+      "Technical aptitude",
+      "English language skills",
+    ],
+    careerOpportunities: [
+      "Engineering Technician",
+      "Manufacturing Engineer",
+      "Quality Control Specialist",
+      "CAD Designer",
+      "Production Supervisor",
+    ],
+    Image: "/images/programs/diploma-engineering.jpg",
+    color: "from-green-600 to-green-700",
+  },
+
+  // Certificates
+  {
+    id: 3,
+    category: "certificate",
+    title: "Business Management",
+    duration: "1 Year",
+    level: "Certificate",
+    overview:
+      "Essential business skills including management principles, marketing strategies, and entrepreneurship.",
+    objectives: [
+      "Understand business management principles",
+      "Learn marketing and sales strategies",
+      "Develop leadership and communication skills",
+      "Master financial management basics",
+    ],
+    requirements: [
+      "High school diploma",
+      "Basic English proficiency",
+      "Interest in business and management",
+      "Communication skills",
+    ],
+    careerOpportunities: [
+      "Business Manager",
+      "Marketing Coordinator",
+      "Sales Representative",
+      "Administrative Assistant",
+      "Entrepreneur",
+    ],
+    Image: "/images/programs/certificate-business.jpg",
+    color: "from-purple-600 to-purple-700",
+  },
+  {
+    id: 4,
+    category: "certificate",
+    title: "Digital Marketing",
+    duration: "6 Months",
+    level: "Certificate",
+    overview:
+      "Modern digital marketing strategies including social media, SEO, content marketing, and analytics.",
+    objectives: [
+      "Master social media marketing",
+      "Learn SEO and SEM techniques",
+      "Understand content marketing strategies",
+      "Analyze marketing performance metrics",
+    ],
+    requirements: [
+      "High school diploma",
+      "Basic computer skills",
+      "English proficiency",
+      "Creative thinking ability",
+    ],
+    careerOpportunities: [
+      "Digital Marketing Specialist",
+      "Social Media Manager",
+      "SEO Specialist",
+      "Content Creator",
+      "Marketing Analyst",
+    ],
+    Image: "/images/programs/certificate-marketing.jpg",
+    color: "from-pink-600 to-pink-700",
+  },
+
+  // Short Courses
+  {
+    id: 5,
+    category: "short",
+    title: "Web Development",
+    duration: "3 Months",
+    level: "Short Course",
+    overview:
+      "Intensive web development course covering front-end and back-end technologies.",
+    objectives: [
+      "Master HTML, CSS, and JavaScript",
+      "Learn React and Node.js",
+      "Understand database integration",
+      "Build responsive web applications",
+    ],
+    requirements: [
+      "Basic computer literacy",
+      "Logical thinking ability",
+      "English language skills",
+      "Commitment to learning",
+    ],
+    careerOpportunities: [
+      "Front-end Developer",
+      "Back-end Developer",
+      "Full-stack Developer",
+      "Web Designer",
+      "Freelance Developer",
+    ],
+    Image: "/images/programs/short-webdev.jpg",
+    color: "from-orange-600 to-orange-700",
+  },
+  {
+    id: 6,
+    category: "short",
+    title: "Graphic Design",
+    duration: "4 Months",
+    level: "Short Course",
+    overview:
+      "Creative design skills using industry-standard software and design principles.",
+    objectives: [
+      "Master Adobe Creative Suite",
+      "Learn design principles and typography",
+      "Develop branding and identity design skills",
+      "Create print and digital designs",
+    ],
+    requirements: [
+      "Creative aptitude",
+      "Basic computer skills",
+      "Artistic ability",
+      "English language skills",
+    ],
+    careerOpportunities: [
+      "Graphic Designer",
+      "UI/UX Designer",
+      "Brand Designer",
+      "Print Designer",
+      "Freelance Designer",
+    ],
+    Image: "/images/programs/short-graphicdesign.jpg",
+    color: "from-teal-600 to-teal-700",
+  },
+
+  // Degrees
+  {
+    id: 7,
+    category: "degree",
+    title: "Bachelor of Computer Science",
+    duration: "4 Years",
+    level: "Degree",
+    overview:
+      "In-depth computer science education covering algorithms, data structures, AI, software engineering, and cybersecurity.",
+    objectives: [
+      "Develop strong foundation in computer science",
+      "Master software engineering principles",
+      "Learn artificial intelligence & machine learning",
+      "Understand cybersecurity and cloud computing",
+    ],
+    requirements: [
+      "High school diploma with mathematics",
+      "Strong analytical and problem-solving skills",
+      "English proficiency",
+    ],
+    careerOpportunities: [
+      "Software Engineer",
+      "Data Scientist",
+      "Cybersecurity Analyst",
+      "AI/ML Engineer",
+      "Cloud Architect",
+    ],
+    Image: "/images/programs/degree-cs.jpg",
+    color: "from-indigo-600 to-indigo-700",
+  },
+
+  // Masters
+  {
+    id: 8,
+    category: "master",
+    title: "Master of Business Administration (MBA)",
+    duration: "2 Years",
+    level: "Master",
+    overview:
+      "Advanced program developing leadership, strategic management, and global business decision-making skills.",
+    objectives: [
+      "Enhance leadership and decision-making abilities",
+      "Master corporate strategy and business analytics",
+      "Understand global business and finance",
+      "Develop advanced entrepreneurship skills",
+    ],
+    requirements: [
+      "Bachelor’s degree in business or related field",
+      "Work experience preferred",
+      "Strong English communication skills",
+    ],
+    careerOpportunities: [
+      "CEO / Executive Manager",
+      "Business Consultant",
+      "Project Manager",
+      "Financial Analyst",
+      "Entrepreneur",
+    ],
+    Image: "/images/programs/master-mba.jpg",
+    color: "from-red-600 to-red-700",
+  },
+
+  // PhD
+  {
+    id: 9,
+    category: "phd",
+    title: "PhD in Artificial Intelligence",
+    duration: "3-5 Years",
+    level: "Doctorate",
+    overview:
+      "Research-focused program exploring advanced AI concepts, machine learning models, and real-world applications.",
+    objectives: [
+      "Conduct cutting-edge research in AI & ML",
+      "Publish in international journals and conferences",
+      "Contribute to AI ethics and policy-making",
+      "Innovate in robotics, automation, and NLP",
+    ],
+    requirements: [
+      "Master’s degree in Computer Science, AI, or related field",
+      "Research proposal submission",
+      "Strong academic and analytical background",
+    ],
+    careerOpportunities: [
+      "AI Research Scientist",
+      "University Professor",
+      "Chief Data Officer",
+      "AI Policy Advisor",
+      "Research Lab Director",
+    ],
+    Image: "/images/programs/phd-ai.jpg",
+    color: "from-yellow-600 to-yellow-700",
+  },
+];
+
 
   const filteredPrograms = selectedCategory === 'all' 
     ? programs 
