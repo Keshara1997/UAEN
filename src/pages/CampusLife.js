@@ -161,15 +161,15 @@ const CampusLife = () => {
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             Upcoming Events
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {events.map((event, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                <div className="h-64 bg-gray-200 flex items-center justify-center">
+              <div key={index} className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden card-hover">
+                <div className="h-64 bg-gray-200 dark:bg-gray-600 flex items-center justify-center">
                   <img 
                     src={event.image} 
                     alt={event.title}
@@ -177,13 +177,13 @@ const CampusLife = () => {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                     {event.title}
                   </h3>
-                  <p className="text-blue-600 font-semibold mb-4">
+                  <p className="text-blue-600 dark:text-blue-400 font-semibold mb-4">
                     {event.date}
                   </p>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {event.description}
                   </p>
                 </div>
@@ -194,32 +194,32 @@ const CampusLife = () => {
       </section>
 
       {/* Clubs & Societies */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             Clubs & Societies
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {activities.map((activity, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-2xl card-hover">
+              <div key={index} className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl card-hover">
                 <div className={`w-16 h-16 bg-gradient-to-br ${activity.color} rounded-full flex items-center justify-center mb-6`}>
                   <i className={`${activity.icon} text-2xl text-white`}></i>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                   {activity.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                   {activity.description}
                 </p>
                 <div className="space-y-2">
                   {activity.activities.slice(0, 3).map((item, itemIndex) => (
-                    <div key={itemIndex} className="flex items-center text-sm text-gray-600">
-                      <i className="fas fa-circle text-blue-500 mr-3 text-xs"></i>
+                    <div key={itemIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                      <i className="fas fa-circle text-blue-500 dark:text-blue-400 mr-3 text-xs"></i>
                       {item}
                     </div>
                   ))}
                   {activity.activities.length > 3 && (
-                    <div className="text-sm text-blue-600 font-semibold">
+                    <div className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
                       +{activity.activities.length - 3} more
                     </div>
                   )}
@@ -231,9 +231,9 @@ const CampusLife = () => {
       </section>
 
       {/* Gallery */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             Campus Gallery
           </h2>
           
@@ -246,7 +246,7 @@ const CampusLife = () => {
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   selectedGallery === category.id
                     ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                 }`}
               >
                 {category.name}
@@ -257,8 +257,8 @@ const CampusLife = () => {
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredImages.map((image) => (
-              <div key={image.id} className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                <div className="h-64 bg-gray-200 flex items-center justify-center">
+              <div key={image.id} className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden card-hover">
+                <div className="h-64 bg-gray-200 dark:bg-gray-600 flex items-center justify-center">
                   <img 
                     src={image.image} 
                     alt={image.title}
@@ -266,7 +266,7 @@ const CampusLife = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     {image.title}
                   </h3>
                 </div>
@@ -277,44 +277,44 @@ const CampusLife = () => {
       </section>
 
       {/* Student Testimonials */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             What Students Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-8 rounded-2xl text-center">
+            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl text-center">
               <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="fas fa-quote-left text-2xl text-white"></i>
               </div>
-              <p className="text-gray-600 italic mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 italic mb-6 leading-relaxed">
                 "The campus life at SDTI is amazing! There's always something happening, 
                 from sports events to cultural festivals. I've made lifelong friends here."
               </p>
-              <h4 className="font-semibold text-gray-900">Ahmed Al-Rashid</h4>
-              <p className="text-sm text-gray-600">IT Student</p>
+              <h4 className="font-semibold text-gray-900 dark:text-white">Ahmed Al-Rashid</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400">IT Student</p>
             </div>
-            <div className="bg-gray-50 p-8 rounded-2xl text-center">
+            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl text-center">
               <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="fas fa-quote-left text-2xl text-white"></i>
               </div>
-              <p className="text-gray-600 italic mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 italic mb-6 leading-relaxed">
                 "The clubs and societies have helped me develop leadership skills and 
                 connect with like-minded students. It's been an incredible experience."
               </p>
-              <h4 className="font-semibold text-gray-900">Fatima Hassan</h4>
-              <p className="text-sm text-gray-600">Business Student</p>
+              <h4 className="font-semibold text-gray-900 dark:text-white">Fatima Hassan</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Business Student</p>
             </div>
-            <div className="bg-gray-50 p-8 rounded-2xl text-center">
+            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl text-center">
               <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="fas fa-quote-left text-2xl text-white"></i>
               </div>
-              <p className="text-gray-600 italic mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 italic mb-6 leading-relaxed">
                 "SDTI provides the perfect balance between academics and extracurricular 
                 activities. The campus facilities are top-notch and the community is welcoming."
               </p>
-              <h4 className="font-semibold text-gray-900">Mohammed Al-Zahra</h4>
-              <p className="text-sm text-gray-600">Engineering Student</p>
+              <h4 className="font-semibold text-gray-900 dark:text-white">Mohammed Al-Zahra</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Engineering Student</p>
             </div>
           </div>
         </div>

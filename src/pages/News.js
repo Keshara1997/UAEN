@@ -159,7 +159,7 @@ const News = () => {
       </section>
 
       {/* News Filter */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
@@ -169,7 +169,7 @@ const News = () => {
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   selectedCategory === category.id
                     ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                 }`}
               >
                 {category.name}
@@ -180,15 +180,15 @@ const News = () => {
       </section>
 
       {/* News Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             Latest News
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredNews.map((news) => (
-              <div key={news.id} className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                <div className="h-48 bg-gray-200 flex items-center justify-center">
+              <div key={news.id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover">
+                <div className="h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
                   <img 
                     src={news.image} 
                     alt={news.title}
@@ -197,18 +197,18 @@ const News = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center mb-3">
-                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-semibold">
+                    <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full text-xs font-semibold">
                       {news.category.charAt(0).toUpperCase() + news.category.slice(1)}
                     </span>
-                    <span className="ml-3 text-gray-500 text-sm">{news.date}</span>
+                    <span className="ml-3 text-gray-500 dark:text-gray-400 text-sm">{news.date}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
                     {news.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
                     {news.excerpt}
                   </p>
-                  <button className="text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors duration-200">
+                  <button className="text-blue-600 dark:text-blue-400 font-semibold text-sm hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200">
                     Read More →
                   </button>
                 </div>
@@ -219,37 +219,37 @@ const News = () => {
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             Upcoming Events
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {upcomingEvents.map((event, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-2xl card-hover">
+              <div key={index} className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl card-hover">
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i className="fas fa-calendar-alt text-2xl text-white"></i>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {event.title}
                   </h3>
                 </div>
                 <div className="space-y-3 text-sm">
-                  <div className="flex items-center text-gray-600">
+                  <div className="flex items-center text-gray-600 dark:text-gray-300">
                     <i className="fas fa-calendar text-blue-500 mr-3"></i>
                     {event.date}
                   </div>
-                  <div className="flex items-center text-gray-600">
+                  <div className="flex items-center text-gray-600 dark:text-gray-300">
                     <i className="fas fa-clock text-blue-500 mr-3"></i>
                     {event.time}
                   </div>
-                  <div className="flex items-center text-gray-600">
+                  <div className="flex items-center text-gray-600 dark:text-gray-300">
                     <i className="fas fa-map-marker-alt text-blue-500 mr-3"></i>
                     {event.location}
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm mt-4 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 text-sm mt-4 leading-relaxed">
                   {event.description}
                 </p>
                 <button className="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-200">
@@ -262,43 +262,43 @@ const News = () => {
       </section>
 
       {/* Announcements */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             Important Announcements
           </h2>
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
             <div className="space-y-6">
-              <div className="flex items-start p-4 bg-blue-50 rounded-lg">
-                <i className="fas fa-info-circle text-blue-600 mr-4 mt-1"></i>
+              <div className="flex items-start p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <i className="fas fa-info-circle text-blue-600 dark:text-blue-400 mr-4 mt-1"></i>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                     Spring 2024 Exam Schedule Released
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
                     The examination schedule for Spring 2024 semester is now available on the student portal. 
                     Please check your individual schedules and prepare accordingly.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start p-4 bg-green-50 rounded-lg">
-                <i className="fas fa-check-circle text-green-600 mr-4 mt-1"></i>
+              <div className="flex items-start p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <i className="fas fa-check-circle text-green-600 dark:text-green-400 mr-4 mt-1"></i>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                     Fall 2024 Applications Open
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
                     Applications for Fall 2024 intake are now open. Apply before August 15, 2024 to secure your place.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start p-4 bg-yellow-50 rounded-lg">
-                <i className="fas fa-exclamation-triangle text-yellow-600 mr-4 mt-1"></i>
+              <div className="flex items-start p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                <i className="fas fa-exclamation-triangle text-yellow-600 dark:text-yellow-400 mr-4 mt-1"></i>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                     Campus Maintenance Notice
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
                     Scheduled maintenance will be conducted on the library system from March 20-22, 2024. 
                     Online services may be temporarily unavailable.
                   </p>
@@ -322,7 +322,7 @@ const News = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white"
+              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white text-gray-900 placeholder-gray-500"
             />
             <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
               Subscribe
