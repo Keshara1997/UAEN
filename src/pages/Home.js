@@ -138,14 +138,15 @@ const Home = () => {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <h1 className="text-display text-white mb-6 leading-tight">
+                "The Sky is Your Limit"
+              </h1>
             {/* <div className="text-white fade-in-up">
               <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-white/90 mb-6 border border-white/20">
                 <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
                 Now Accepting Applications
               </div>
-              <h1 className="text-display text-white mb-6 leading-tight">
-                "The Sky is Your Limit"
-              </h1>
+             
               <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed max-w-2xl">
                 Join SDTI and unlock your potential with industry-relevant training, 
                 experienced lecturers, and comprehensive career support.
