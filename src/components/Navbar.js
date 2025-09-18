@@ -41,7 +41,7 @@ const Navbar = () => {
           
           
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/images/logos/sdti.png" alt="SDTI Logo" className="h-20 w-60" />
+            <img src="/images/logo/SDTIDUBAI7.png" alt="SDTI Logo" className="h-20 w-60" />
           </Link>
 
           {/* Desktop Navigation */}
