@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 const Home = () => {
 
@@ -55,59 +55,24 @@ const Home = () => {
     { icon: 'fas fa-calendar', label: 'Upcoming Events', link: '/news' }
   ];
 
-  const images = [
-    "/images/logo/SDTIDUBAI4.png",
-    "/images/logo/SDTIDUBAI5.png",
-
-    "/images/Graduation%20Special/379923268_251494751199518_8158933241376544005_n-mi.jpeg",
-    "/images/Graduation%20Special/473576898_1161969612595416_1303676268995549737_n.jpg", 
-    "/images/Graduation%20Special/473620187_1161969932595384_8195860307286033297_n.jpg",
-    "/images/Graduation%20Special/379923268_251494751199518_8158933241376544005_n-mi.jpeg"
-  ];
-
-  const [current, setCurrent] = useState(0);
-  const [imageErrors, setImageErrors] = useState(new Set());
-  
-  // Change slide every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  // Handle image load errors
-  const handleImageError = (index) => {
-    setImageErrors(prev => new Set([...prev, index]));
-  };
+  const videoSrc = "/videos/SDTIDubaiWEBReleaseVideo.mp4";
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-        {/* Background Slideshow */}
+        {/* Background Video */}
         <div className="absolute inset-0">
-          {images.map((img, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-                index === current ? "opacity-100" : "opacity-0"
-              }`}
-              style={{ 
-                backgroundImage: imageErrors.has(index) 
-                  ? 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)' 
-                  : `url(${img})` 
-              }}
-            >
-              {/* Hidden img element for error detection */}
-              <img 
-                src={img} 
-                alt="" 
-                style={{ display: 'none' }}
-                onError={() => handleImageError(index)}
-              />
-            </div>
-          ))}
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src={videoSrc} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           {/* Modern overlay with gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
           
@@ -117,90 +82,12 @@ const Home = () => {
             <div className="absolute top-40 right-20 w-24 h-24 bg-blue-400/10 rounded-full blur-lg float-animation" style={{animationDelay: '1s'}}></div>
             <div className="absolute bottom-40 left-20 w-40 h-40 bg-purple-400/5 rounded-full blur-2xl float-animation" style={{animationDelay: '2s'}}></div>
           </div> */}
-          
-          {/* Slideshow Navigation Dots */}
-          {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrent(index)}
-                className={`w-4 h-4 rounded-full transition-all duration-300 backdrop-blur-sm ${
-                  index === current 
-                    ? 'bg-white scale-125 shadow-lg' 
-                    : 'bg-white/30 hover:bg-white/50 hover:scale-110'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div> */}
         </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <h1 className="text-display text-white mb-6 leading-tight">
-                "The Sky is Your Limit"
-              </h1>
-            {/* <div className="text-white fade-in-up">
-              <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-white/90 mb-6 border border-white/20">
-                <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                Now Accepting Applications
-              </div>
-             
-              <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed max-w-2xl">
-                Join SDTI and unlock your potential with industry-relevant training, 
-                experienced lecturers, and comprehensive career support.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link to="/admissions" className="btn-primary text-center group">
-                  <span className="flex items-center justify-center">
-                    Apply Now
-                    <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                  </span>
-                </Link>
-                <Link to="/programs" className="btn-secondary text-center group">
-                  <span className="flex items-center justify-center">
-                    Explore Courses
-                    <i className="fas fa-play ml-2 group-hover:scale-110 transition-transform"></i>
-                  </span>
-                </Link>
-              </div> */}
-              
-              {/* Stats */}
-              {/* <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white">5000+</div>
-                  <div className="text-sm text-white/70">Graduates</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white">95%</div>
-                  <div className="text-sm text-white/70">Job Placement</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white">15+</div>
-                  <div className="text-sm text-white/70">Years Experience</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex justify-center slide-in-right">
-              <div className="relative">
-                <div className="w-96 h-96 glass-effect rounded-3xl flex items-center justify-center overflow-hidden shadow-modern-xl">
-                  <img 
-                    src="/images/logos/sdti.png" 
-                    alt="SDTI Logo" 
-                    className="w-full h-full object-contain p-8"
-                  />
-                </div> */}
-                {/* Floating badges */}
-                {/* <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
-                  <i className="fas fa-check text-white text-xl"></i>
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                  <i className="fas fa-graduation-cap text-white text-2xl"></i>
-                </div>
-              </div>
-            </div>*/}
+         
           </div> 
         </div>
       </section>
