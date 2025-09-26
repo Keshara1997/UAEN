@@ -36,8 +36,8 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isHomePage 
-        ? (isScrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent')
-        : 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg'
+        ? (isScrolled ? 'bg-card/95 backdrop-blur-md shadow-lg' : 'bg-transparent')
+        : 'bg-card/95 backdrop-blur-md shadow-lg'
       }`}>
       
       
@@ -58,10 +58,10 @@ const Navbar = () => {
                 to={item.path}
                 className={`font-medium transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? 'text-blue-600 dark:text-blue-400'
+                    ? 'text-accent'
                     : isHomePage && !isScrolled
-                    ? 'text-white hover:text-blue-200'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                    ? 'text-white hover:text-accent'
+                    : 'text-text hover:text-accent'
                 }`}
               >
                 {item.label}
@@ -76,7 +76,7 @@ const Navbar = () => {
             <button
               onClick={toggleMenu}
               className={`p-2 rounded-md ${
-                isHomePage && !isScrolled ? 'text-white' : 'text-gray-700 dark:text-gray-300'
+                isHomePage && !isScrolled ? 'text-white' : 'text-text'
               }`}
             >
               <svg
@@ -108,15 +108,15 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-800 rounded-lg shadow-lg mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card rounded-lg shadow-lg mt-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     location.pathname === item.path
-                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700'
+                      ? 'text-accent bg-accent/10'
+                      : 'text-text hover:text-accent hover:bg-border'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >

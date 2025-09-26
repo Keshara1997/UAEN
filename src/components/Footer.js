@@ -5,16 +5,16 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
+    <footer className="bg-primary text-primary-contrast">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div>
-              <h3 className="text-xl font-bold text-blue-400">SDTI</h3>
-              <p className="text-sm text-gray-400">Skills Development Training Institute</p>
+              <h3 className="text-xl font-bold text-accent">SDTI</h3>
+              <p className="text-sm text-muted">Skills Development Training Institute</p>
             </div>
-            <p className="text-gray-300 dark:text-gray-400 text-sm leading-relaxed">
+            <p className="text-muted text-sm leading-relaxed">
               Empowering futures through quality education and practical training. 
               We prepare students for successful careers in various industries.
             </p>
@@ -25,22 +25,22 @@ const Footer = () => {
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-gray-300 dark:text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                <Link to="/about" className="text-muted hover:text-accent transition-colors duration-200">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/programs" className="text-gray-300 dark:text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                <Link to="/programs" className="text-muted hover:text-accent transition-colors duration-200">
                   Programs
                 </Link>
               </li>
               <li>
-                <Link to="/admissions" className="text-gray-300 dark:text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                <Link to="/admissions" className="text-muted hover:text-accent transition-colors duration-200">
                   Admissions
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 dark:text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                <Link to="/contact" className="text-muted hover:text-accent transition-colors duration-200">
                   Contact
                 </Link>
               </li>
@@ -50,22 +50,22 @@ const Footer = () => {
           {/* Contact Info */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Contact Info</h4>
-            <div className="space-y-2 text-sm text-gray-300 dark:text-gray-400">
+            <div className="space-y-2 text-sm text-muted">
               <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
                 <span>+971 XX XXX XXXX</span>
               </div>
               <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
                 <span>info@sdtiedu.ae</span>
               </div>
               <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 <span>UAE</span>
@@ -79,7 +79,7 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200"
+                className="w-10 h-10 bg-primary-contrast/20 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200"
+                className="w-10 h-10 bg-primary-contrast/20 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -97,7 +97,7 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200"
+                className="w-10 h-10 bg-primary-contrast/20 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -106,7 +106,7 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200"
+                className="w-10 h-10 bg-primary-contrast/20 rounded-full flex items-center justify-center hover:bg-accent transition-colors duration-200"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -118,8 +118,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-400 dark:text-gray-500 text-sm">
+        <div className="border-t border-border mt-8 pt-8 text-center">
+          <p className="text-muted text-sm">
             &copy; {currentYear} SDTI - Skills Development Training Institute. All rights reserved.
           </p>
         </div>

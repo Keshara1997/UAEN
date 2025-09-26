@@ -10,6 +10,19 @@ module.exports = {
         'inter': ['Inter', 'sans-serif'],
       },
       colors: {
+        // Theme-aware colors using CSS variables
+        bg: 'var(--bg)',
+        card: 'var(--card)',
+        text: 'var(--text)',
+        muted: 'var(--muted)',
+        primary: 'var(--primary)',
+        'primary-contrast': 'var(--primary-contrast)',
+        accent: 'var(--accent)',
+        secondary: 'var(--secondary)',
+        border: 'var(--border)',
+        shadow: 'var(--shadow)',
+        
+        // Legacy colors for compatibility
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',
