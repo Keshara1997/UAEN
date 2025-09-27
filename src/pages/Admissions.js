@@ -128,8 +128,8 @@ const Admissions = () => {
         {/* Floating elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-xl float-animation"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-blue-400/10 rounded-full blur-lg float-animation" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-40 left-20 w-40 h-40 bg-purple-400/5 rounded-full blur-2xl float-animation" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-[#111166]/20 rounded-full blur-lg float-animation" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-40 left-20 w-40 h-40 bg-[#ffa4ff]/10 rounded-full blur-2xl float-animation" style={{animationDelay: '2s'}}></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -148,17 +148,17 @@ const Admissions = () => {
       </section>
 
       {/* Admission Process */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24 bg-[#fff0ff] dark:bg-[#000000]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-sm font-medium text-blue-700 dark:text-blue-300 mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-[#b4b1f8] dark:bg-[#073763] rounded-full text-sm font-medium text-[#111166] dark:text-[#fff0ff] mb-6">
               <i className="fas fa-list-ol mr-2"></i>
               Simple Process
             </div>
-            <h2 className="text-heading text-4xl md:text-5xl text-gray-900 dark:text-white mb-6">
+            <h2 className="text-heading text-4xl md:text-5xl text-gray-900 dark:text-[#fff0ff] mb-6">
               Admission Process
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-[#85828d] max-w-3xl mx-auto">
               Our streamlined admission process makes it easy to start your educational journey.
             </p>
           </div>
@@ -169,21 +169,21 @@ const Admissions = () => {
                 <div className="relative mb-6">
                   <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-modern transition-all duration-300 group-hover:scale-110 ${
                     currentStep >= step.step 
-                      ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white' 
-                      : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400'
+                      ? 'bg-gradient-to-br from-[#111166] to-[#2a2a88] text-white' 
+                      : 'bg-[#ffe3ff] dark:bg-[#4d5464] text-[#111166] dark:text-[#85828d]'
                   }`}>
                     <span className="text-2xl font-bold">{step.step}</span>
                   </div>
                   {currentStep >= step.step && (
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center">
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-[#ffa4ff] to-[#ff7bff] rounded-full flex items-center justify-center">
                       <i className="fas fa-check text-white text-sm"></i>
                     </div>
                   )}
                 </div>
-                <h3 className="text-heading text-lg text-gray-900 dark:text-white mb-3">
+                <h3 className="text-heading text-lg text-gray-900 dark:text-[#fff0ff] mb-3">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                <p className="text-gray-600 dark:text-[#85828d] text-sm leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -192,60 +192,35 @@ const Admissions = () => {
         </div>
       </section>
 
-     
-
-      {/* Important Dates */}
-      {/* <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
-            Important Dates
-          </h2>
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {importantDates.map((date, index) => (
-                <div key={index} className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                    {date.event}
-                  </h3>
-                  <p className="text-blue-600 dark:text-blue-400 font-semibold">
-                    {date.date}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* Application Form */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <section className="py-24 bg-gradient-to-br from-[#ffe3ff] via-[#fff0ff] to-[#ffe3ff] dark:from-[#000000] dark:via-[#073763] dark:to-[#000000]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center px-4 py-2 bg-green-100 dark:bg-green-900/30 rounded-full text-sm font-medium text-green-700 dark:text-green-300 mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-[#b4b1f8] dark:bg-[#073763] rounded-full text-sm font-medium text-[#111166] dark:text-[#fff0ff] mb-6">
               <i className="fas fa-file-alt mr-2"></i>
               Apply Online
             </div>
-            <h2 className="text-heading text-4xl md:text-5xl text-gray-900 dark:text-white mb-6">
+            <h2 className="text-heading text-4xl md:text-5xl text-gray-900 dark:text-[#fff0ff] mb-6">
               Online Application Form
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-[#85828d] max-w-3xl mx-auto">
               Complete your application in just a few minutes. All fields marked with * are required.
             </p>
           </div>
           
-          <div className="modern-card p-8 md:p-12">
+          <div className="modern-card p-8 md:p-12 bg-white dark:bg-[#000000] border border-[#b4b1f8] dark:border-[#073763]">
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Personal Information */}
               <div className="space-y-6">
-                <h3 className="text-heading text-2xl text-gray-900 dark:text-white mb-6 flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-3">
+                <h3 className="text-heading text-2xl text-gray-900 dark:text-[#fff0ff] mb-6 flex items-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-[#111166] to-[#2a2a88] rounded-full flex items-center justify-center mr-3">
                     <i className="fas fa-user text-white text-sm"></i>
                   </div>
                   Personal Information
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-[#85828d] mb-3">
                       First Name *
                     </label>
                     <input
@@ -254,12 +229,12 @@ const Admissions = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="modern-input"
+                      className="modern-input bg-[#fff0ff] dark:bg-[#4d5464] border border-[#b4b1f8] dark:border-[#073763] text-gray-900 dark:text-[#fff0ff]"
                       placeholder="Enter your first name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-[#85828d] mb-3">
                       Last Name *
                     </label>
                     <input
@@ -268,7 +243,7 @@ const Admissions = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
-                      className="modern-input"
+                      className="modern-input bg-[#fff0ff] dark:bg-[#4d5464] border border-[#b4b1f8] dark:border-[#073763] text-gray-900 dark:text-[#fff0ff]"
                       placeholder="Enter your last name"
                     />
                   </div>
@@ -276,7 +251,7 @@ const Admissions = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-[#85828d] mb-3">
                       Email Address *
                     </label>
                     <input
@@ -285,12 +260,12 @@ const Admissions = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="modern-input"
+                      className="modern-input bg-[#fff0ff] dark:bg-[#4d5464] border border-[#b4b1f8] dark:border-[#073763] text-gray-900 dark:text-[#fff0ff]"
                       placeholder="Enter your email address"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-[#85828d] mb-3">
                       Phone Number *
                     </label>
                     <input
@@ -299,7 +274,7 @@ const Admissions = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="modern-input"
+                      className="modern-input bg-[#fff0ff] dark:bg-[#4d5464] border border-[#b4b1f8] dark:border-[#073763] text-gray-900 dark:text-[#fff0ff]"
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -308,14 +283,14 @@ const Admissions = () => {
 
               {/* Program Selection */}
               <div className="space-y-6">
-                <h3 className="text-heading text-2xl text-gray-900 dark:text-white mb-6 flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                <h3 className="text-heading text-2xl text-gray-900 dark:text-[#fff0ff] mb-6 flex items-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-[#b4b1f8] to-[#8a85f5] rounded-full flex items-center justify-center mr-3">
                     <i className="fas fa-graduation-cap text-white text-sm"></i>
                   </div>
                   Program Selection
                 </h3>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-[#85828d] mb-3">
                     Program of Interest *
                   </label>
                   <select
@@ -323,7 +298,7 @@ const Admissions = () => {
                     value={formData.program}
                     onChange={handleInputChange}
                     required
-                    className="modern-input"
+                    className="modern-input bg-[#fff0ff] dark:bg-[#4d5464] border border-[#b4b1f8] dark:border-[#073763] text-gray-900 dark:text-[#fff0ff]"
                   >
                     <option value="">Select a program</option>
                     {programs.map((program, index) => (
@@ -335,7 +310,7 @@ const Admissions = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-[#85828d] mb-3">
                     Highest Education Level *
                   </label>
                   <select
@@ -343,7 +318,7 @@ const Admissions = () => {
                     value={formData.education}
                     onChange={handleInputChange}
                     required
-                    className="modern-input"
+                    className="modern-input bg-[#fff0ff] dark:bg-[#4d5464] border border-[#b4b1f8] dark:border-[#073763] text-gray-900 dark:text-[#fff0ff]"
                   >
                     <option value="">Select education level</option>
                     {educationLevels.map((level, index) => (
@@ -357,14 +332,14 @@ const Admissions = () => {
 
               {/* Additional Information */}
               <div className="space-y-6">
-                <h3 className="text-heading text-2xl text-gray-900 dark:text-white mb-6 flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3">
+                <h3 className="text-heading text-2xl text-gray-900 dark:text-[#fff0ff] mb-6 flex items-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-[#ffa4ff] to-[#ff7bff] rounded-full flex items-center justify-center mr-3">
                     <i className="fas fa-info-circle text-white text-sm"></i>
                   </div>
                   Additional Information
                 </h3>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-[#85828d] mb-3">
                     Work Experience
                   </label>
                   <textarea
@@ -372,13 +347,13 @@ const Admissions = () => {
                     value={formData.experience}
                     onChange={handleInputChange}
                     rows={4}
-                    className="modern-input"
+                    className="modern-input bg-[#fff0ff] dark:bg-[#4d5464] border border-[#b4b1f8] dark:border-[#073763] text-gray-900 dark:text-[#fff0ff]"
                     placeholder="Describe your work experience (optional)"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-[#85828d] mb-3">
                     Additional Information
                   </label>
                   <textarea
@@ -386,23 +361,23 @@ const Admissions = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className="modern-input"
+                    className="modern-input bg-[#fff0ff] dark:bg-[#4d5464] border border-[#b4b1f8] dark:border-[#073763] text-gray-900 dark:text-[#fff0ff]"
                     placeholder="Any additional information you'd like to share"
                   />
                 </div>
               </div>
 
               {/* Terms Agreement */}
-              <div className="flex items-start p-6 bg-blue-50 dark:bg-blue-900/20 rounded-2xl border border-blue-200 dark:border-blue-800">
+              <div className="flex items-start p-6 bg-[#b4b1f8]/20 dark:bg-[#073763]/30 rounded-2xl border border-[#b4b1f8] dark:border-[#073763]">
                 <input
                   type="checkbox"
                   name="agreeToTerms"
                   checked={formData.agreeToTerms}
                   onChange={handleInputChange}
                   required
-                  className="mt-1 mr-4 w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  className="mt-1 mr-4 w-5 h-5 text-[#111166] bg-[#fff0ff] border-[#b4b1f8] rounded focus:ring-[#111166] dark:focus:ring-[#ffa4ff] dark:ring-offset-gray-800 focus:ring-2 dark:bg-[#4d5464] dark:border-[#073763]"
                 />
-                <label className="text-sm text-gray-600 dark:text-gray-300">
+                <label className="text-sm text-gray-600 dark:text-[#85828d]">
                   I agree to the terms and conditions and privacy policy. I understand that 
                   my information will be used for admission purposes only. *
                 </label>
@@ -416,8 +391,8 @@ const Admissions = () => {
                   className={`px-16 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
-                      : 'btn-primary'
-                  } text-white`}
+                      : 'bg-gradient-to-br from-[#111166] to-[#2a2a88] hover:from-[#2a2a88] hover:to-[#111166]'
+                  } text-white shadow-lg hover:shadow-xl`}
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center">
@@ -438,19 +413,19 @@ const Admissions = () => {
       </section>
 
       {/* Download Prospectus */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24 bg-[#fff0ff] dark:bg-[#000000]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="modern-card p-12">
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <div className="modern-card p-12 bg-white dark:bg-[#000000] border border-[#b4b1f8] dark:border-[#073763]">
+            <div className="w-20 h-20 bg-gradient-to-br from-[#111166] to-[#2a2a88] rounded-2xl flex items-center justify-center mx-auto mb-6">
               <i className="fas fa-download text-white text-2xl"></i>
             </div>
-            <h2 className="text-heading text-3xl md:text-4xl text-gray-900 dark:text-white mb-6">
+            <h2 className="text-heading text-3xl md:text-4xl text-gray-900 dark:text-[#fff0ff] mb-6">
               Download Our Prospectus
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-[#85828d] mb-8 max-w-2xl mx-auto">
               Get detailed information about our programs, facilities, and admission requirements.
             </p>
-            <button className="btn-outline group">
+            <button className="btn-outline group border border-[#111166] text-[#111166] hover:bg-[#111166] hover:text-white dark:border-[#ffa4ff] dark:text-[#ffa4ff] dark:hover:bg-[#ffa4ff] dark:hover:text-[#000000]">
               <span className="flex items-center justify-center">
                 <i className="fas fa-download mr-2"></i>
                 Download Prospectus (PDF)
@@ -466,8 +441,8 @@ const Admissions = () => {
         {/* Floating elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-xl float-animation"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-blue-400/10 rounded-full blur-lg float-animation" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-40 left-20 w-40 h-40 bg-purple-400/5 rounded-full blur-2xl float-animation" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-[#111166]/20 rounded-full blur-lg float-animation" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-40 left-20 w-40 h-40 bg-[#ffa4ff]/10 rounded-full blur-2xl float-animation" style={{animationDelay: '2s'}}></div>
         </div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -483,8 +458,8 @@ const Admissions = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="glass-card p-8 text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="glass-card p-8 text-center group bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#111166] to-[#2a2a88] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <i className="fas fa-phone text-white text-2xl"></i>
               </div>
               <h3 className="text-heading text-xl text-white mb-3">Call Us</h3>
@@ -492,8 +467,8 @@ const Admissions = () => {
               <p className="text-white/60 text-sm mt-2">Mon-Fri, 9AM-6PM</p>
             </div>
             
-            <div className="glass-card p-8 text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="glass-card p-8 text-center group bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#b4b1f8] to-[#8a85f5] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <i className="fas fa-envelope text-white text-2xl"></i>
               </div>
               <h3 className="text-heading text-xl text-white mb-3">Email Us</h3>
@@ -501,8 +476,8 @@ const Admissions = () => {
               <p className="text-white/60 text-sm mt-2">24/7 Support</p>
             </div>
             
-            <div className="glass-card p-8 text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="glass-card p-8 text-center group bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#ffa4ff] to-[#ff7bff] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <i className="fas fa-map-marker-alt text-white text-2xl"></i>
               </div>
               <h3 className="text-heading text-xl text-white mb-3">Visit Us</h3>
@@ -512,6 +487,72 @@ const Admissions = () => {
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        .gradient-bg {
+          background: linear-gradient(135deg, #111166 0%, #2a2a88 50%, #4a4aaa 100%);
+        }
+        
+        .dark .gradient-bg {
+          background: linear-gradient(135deg, #000000 0%, #073763 50%, #4d5464 100%);
+        }
+        
+        .modern-card {
+          background: white;
+          border-radius: 24px;
+          box-shadow: 0 10px 40px rgba(17, 17, 102, 0.1);
+        }
+        
+        .dark .modern-card {
+          background: #000000;
+          box-shadow: 0 10px 40px rgba(255, 164, 255, 0.1);
+        }
+        
+        .modern-input {
+          width: 100%;
+          padding: 12px 16px;
+          border-radius: 12px;
+          font-size: 16px;
+          transition: all 0.3s ease;
+          outline: none;
+        }
+        
+        .modern-input:focus {
+          box-shadow: 0 0 0 3px rgba(180, 177, 248, 0.3);
+        }
+        
+        .dark .modern-input:focus {
+          box-shadow: 0 0 0 3px rgba(255, 164, 255, 0.3);
+        }
+        
+        .glass-card {
+          backdrop-filter: blur(20px);
+          border-radius: 20px;
+          transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .float-animation {
+          animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .shadow-modern {
+          box-shadow: 0 8px 32px rgba(17, 17, 102, 0.15);
+        }
+        
+        .dark .shadow-modern {
+          box-shadow: 0 8px 32px rgba(255, 164, 255, 0.15);
+        }
+      `}</style>
     </div>
   );
 };
