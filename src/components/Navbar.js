@@ -4,17 +4,7 @@ import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,22 +21,9 @@ const Navbar = () => {
     { path: '/contact', label: 'Contact' },
   ];
 
-  const isHomePage = location.pathname === '/';
-
-  // Build navbar classes
+  // Base navbar styles
   const baseClasses = "fixed top-0 w-full z-50 transition-all duration-300";
-
-  // Always blue on mobile
-  let navClasses = `${baseClasses} bg-blue-600 dark:bg-gray-900/95`;
-
-  // Desktop scroll logic
-  if (isHomePage) {
-    navClasses += isScrolled
-      ? " lg:bg-blue-600 lg:dark:bg-gray-900/95 lg:backdrop-blur-md lg:shadow-lg"
-      : " lg:bg-transparent";
-  } else {
-    navClasses += " lg:bg-blue-600 lg:dark:bg-gray-900/95 lg:backdrop-blur-md lg:shadow-lg";
-  }
+  const navClasses = `${baseClasses} bg-[#1e1a4d] dark:bg-[#1e1a4d] backdrop-blur-md shadow-lg`;
 
   return (
     <nav className={navClasses}>
@@ -65,10 +42,8 @@ const Navbar = () => {
                 to={item.path}
                 className={`font-medium transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : isHomePage && !isScrolled
-                    ? 'text-white hover:text-blue-200'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                    ? 'text-[#74a9ee] dark:text-[#89aeeb]' // Active link
+                    : 'text-white hover:text-[#dbeafe]'
                 }`}
               >
                 {item.label}
@@ -96,7 +71,7 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 
-                            bg-blue-600 dark:bg-blue-800 
+                            bg-[#1e1a4d] dark:bg-[#1e1a4d] 
                             rounded-lg shadow-lg mt-2">
               {navItems.map((item) => (
                 <Link
@@ -104,7 +79,7 @@ const Navbar = () => {
                   to={item.path}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     location.pathname === item.path
-                      ? 'text-white font-semibold bg-blue-700 dark:bg-blue-900'
+                      ? 'text-white font-semibold bg-[#91b7ec] dark:bg-[#7da4dd]'
                       : 'text-white/80 hover:text-white'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
