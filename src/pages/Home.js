@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import ImageSlideshow from "../components/ImageSlideshow";
 
 const Home = () => {
   const [currentCourseIndex, setCurrentCourseIndex] = useState(0);
@@ -68,17 +67,6 @@ const Home = () => {
   ];
 
 
-  const images = [
-    {image: "/images/DubaiWeb/Premium Photo 01.png"},
-    {image: "/images/DubaiWeb/Premium Photo 05.png"},
-    {image: "/images/DubaiWeb/Premium Photo 11.png"},
-    {image: "/images/DubaiWeb/Premium Photo 12.png"},
-    {image: "/images/DubaiWeb/Premium Photo 13.png"},
-    {image: "/images/DubaiWeb/Premium Photo 14.png"},
-    {image: "/images/DubaiWeb/Premium Photo 15.png"},
-    {image: "/images/DubaiWeb/Premium Photo 16.png"},
-    {image: "/images/DubaiWeb/Premium Photo 17.png"},
-    ]
 
 
   const upcomingEvents = [
@@ -250,6 +238,82 @@ const Home = () => {
       alt: "Campus Life",
       caption: "Dynamic Campus Life",
       description: "Experience the vibrant energy of campus life at SDTI"
+    }
+  ];
+
+  // Opening Ceremony Images for Slideshow
+  const openingCeremonyImages = [
+    {
+      src: "/images/Open/open1.jpg",
+      alt: "Opening Ceremony Moment",
+      caption: "Grand Opening Celebration",
+      description: "A memorable moment from our grand opening ceremony"
+    },
+    {
+      src: "/images/Open/open2.jpg",
+      alt: "Ceremony Highlights",
+      caption: "Ceremony Highlights",
+      description: "Capturing the essence of our opening celebration"
+    },
+    {
+      src: "/images/Open/open3.jpg",
+      alt: "Special Event",
+      caption: "Special Event",
+      description: "An unforgettable day in SDTI's history"
+    },
+    {
+      src: "/images/Open/open4.jpg",
+      alt: "Opening Festivities",
+      caption: "Opening Festivities",
+      description: "Celebrating new beginnings and opportunities"
+    },
+    {
+      src: "/images/Open/open5.jpg",
+      alt: "Ceremony Celebration",
+      caption: "Ceremony Celebration",
+      description: "A day filled with joy, excitement, and new possibilities"
+    },
+    {
+      src: "/images/Open/open6.jpg",
+      alt: "Opening Day",
+      caption: "Opening Day",
+      description: "Marking the beginning of our educational journey"
+    },
+    {
+      src: "/images/Open/open7.jpg",
+      alt: "Ceremony Event",
+      caption: "Ceremony Event",
+      description: "A special moment in our institution's history"
+    },
+    {
+      src: "/images/Open/open8.jpg",
+      alt: "Opening Ceremony",
+      caption: "Opening Ceremony",
+      description: "Celebrating the launch of SDTI Dubai"
+    },
+    {
+      src: "/images/Open/open9.jpg",
+      alt: "Grand Opening",
+      caption: "Grand Opening",
+      description: "A milestone moment for our institution"
+    },
+    {
+      src: "/images/Open/open10.jpg",
+      alt: "Ceremony Highlights",
+      caption: "Ceremony Highlights",
+      description: "Memorable moments from our opening celebration"
+    },
+    {
+      src: "/images/Open/open11.jpg",
+      alt: "Opening Event",
+      caption: "Opening Event",
+      description: "A celebration of new beginnings and opportunities"
+    },
+    {
+      src: "/images/Open/open12.jpg",
+      alt: "Special Ceremony",
+      caption: "Special Ceremony",
+      description: "An important day in SDTI's journey"
     }
   ];
 
@@ -463,6 +527,89 @@ const Home = () => {
       </section>
 
 
+      <section className="py-24 bg-gradient-to-br from-[#ffe3ff] via-[#fff0ff] to-[#b4b1f8] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-[#b4b1f8] dark:bg-[#111166] rounded-full text-sm font-medium text-[#111166] dark:text-[#b4b1f8] mb-6">
+              <i className="fas fa-calendar-star mr-2"></i>
+              Special Events
+            </div>
+            <h2 className="text-heading text-4xl md:text-5xl text-gray-900 dark:text-white mb-6">
+              Opening Ceremony
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Relive the memorable moments from our grand opening ceremony, celebrating new beginnings and opportunities.
+            </p>
+          </div>
+          
+          {/* Opening Ceremony Custom Slideshow */}
+          <div className="mb-16">
+            <div className="relative max-w-6xl mx-auto">
+              {/* Slideshow Container */}
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-white dark:bg-gray-800">
+                <div className="relative h-[500px] md:h-[600px]">
+                  {openingCeremonyImages.map((image, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 transition-opacity duration-1000 ${
+                        index === currentCourseIndex ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-8 left-8 right-8 text-white">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2">{image.caption}</h3>
+                        <p className="text-lg opacity-90">{image.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Navigation Arrows */}
+                <button
+                  onClick={() => setCurrentCourseIndex((prev) => 
+                    prev === 0 ? openingCeremonyImages.length - 1 : prev - 1
+                  )}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group"
+                >
+                  <i className="fas fa-chevron-left group-hover:-translate-x-1 transition-transform"></i>
+                </button>
+                <button
+                  onClick={() => setCurrentCourseIndex((prev) => 
+                    prev === openingCeremonyImages.length - 1 ? 0 : prev + 1
+                  )}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group"
+                >
+                  <i className="fas fa-chevron-right group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                {/* Dots Indicator */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                  {openingCeremonyImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentCourseIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentCourseIndex 
+                          ? 'bg-white scale-125' 
+                          : 'bg-white/50 hover:bg-white/70'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+             
+            </div>
+          </div>
+        </div>
+      </section>
+
+
 
 
       {/* Featured Courses */}
@@ -582,7 +729,7 @@ const Home = () => {
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-5 gap-6 items-center justify-items-center">
               {[
-                { src: "/images/logos/ugc_recognized.png", alt: "UGC Recognized" },
+                { src: "/images/logos/KHDA.png", alt: "KHDA Recognized" },
                 { src: "/images/logos/IIC1.png", alt: "IIC Certification" },
                 { src: "/images/logos/iso.png", alt: "ISO Certification" },
                 { src: "/images/logos/LOGO-1-927x1024.png", alt: "Institution Logo" },
