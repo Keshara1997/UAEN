@@ -6,8 +6,8 @@ const Programs = () => {
   const categories = [
     { id: 'all', name: 'All Programs' },
     { id: 'degree', name: 'Undergraduate / Degrees' },
-    { id: 'postgraduate', name: 'Postgraduate / Masters' },
-    { id: 'doctorate', name: 'Doctorate / PhD' },
+    { id: 'master', name: 'Postgraduate / Masters' },
+    { id: 'phd', name: 'Doctorate / PhD' },
     { id: 'diploma', name: 'Diplomas' },
     { id: 'certificate', name: 'Certificates' },
     { id: 'short-course', name: 'Short Courses' },
